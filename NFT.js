@@ -1,47 +1,33 @@
-let NFTs=[];//array to store NFT
+function mintNFT(brand, model, year, owner) {
+    const carNFT = {
+        "Brand": brand,
+         Model: model,
+        "Year": year,
+        "Owner":owner
+    };
+carnft.push(carNFT); 
+}
+var carnft=[];
 
-function mintNFT(name,cost,owner,color_used,last_owner,art_type)
+function listNFTs() {
+    for (let i = 0; i <carnft.length; i++) {
+        console.log("Brand: " + carnft[i].Brand);
+        console.log("Model: " + carnft[i].Model);
+        console.log("Year: " + carnft[i].Year);
+        console.log("Owner: " + carnft[i].Owner);
+        console.log("\n");
+    }
+    console.log(getTotalSupply());
+}
+function getTotalSupply() 
 {
-    const NFT={ //This nft is about paintings
-    Name:name,
-    Cost:cost,
-    Owner:owner,
-    Color_Used:color_used,
-    Last_Owner:last_owner,
-    Art_Type:art_type
-};
-   
-   NFTs.push(NFT) //ADD NEW NFT TO ARRAY NFTs
-} 
-
-function getTotalSupply() //RETURN LENGTH OF NFTs ARRAY
-{
-    return NFTs.length;
+    return carnft.length;
 }
 
-
-function listNFTs()
-{
-    for(let i = 0; i <getTotalSupply(); i++) // LOOP TO WENT THROUGH EVERY NFT 
-   {
-     console.log("Name: " + NFTs[i].Name);
-     console.log("Cost: " + NFTs[i].Cost);
-     console.log("Owner Name: " + NFTs[i].Owner);
-     console.log("Color Used: " + NFTs[i].Color_Used);
-     console.log("Previous Owner: " + NFTs[i].Last_Owner);
-     console.log("Art Type: " + NFTs[i].Art_Type);
-     console.log("\n")
-   }
-}
-
-mintNFT("Starry Night", 1000, "Alice", ["blue", "yellow"], "Bob", "Painting");
-mintNFT("Mona Lisa", 2000, "Charlie", ["brown", "green"], "Alice", "Portrait");
-mintNFT("The Scream", 1500, "David", ["orange", "blue"], "Eve", "Expressionism");
-mintNFT("Girl with a Pearl Earring", 1200, "Fiona", ["blue", "yellow", "white"], "George", "Baroque");
-mintNFT("The Persistence of Memory", 1800, "Hannah", ["brown", "beige", "blue"], "Ivan", "Surrealism");
+mintNFT("Toyota", "Camry", 2022, "Alice");
+mintNFT("Tesla", "Model S", 2023, "Charlie");
+mintNFT("Ford", "Mustang", 2020, "David");
+mintNFT("BMW", "X5", 2021, "Fiona");
 
 
-listNFTs(); // TO PRINT ALL NFTS 
-
-console.log(`Total number of NFTs are ${getTotalSupply()}`)
-
+listNFTs();
